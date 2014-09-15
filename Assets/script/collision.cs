@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class collision : MonoBehaviour {
-	private float chance = 3f;
+	public float chance = 3f;
 	private bool mort = false;
 	float timer;
 	// Use this for initialization

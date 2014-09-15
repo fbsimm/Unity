@@ -17,5 +17,9 @@ public class GUICamera : MonoBehaviour {
 
 	void OnGUI() {
 		GUI.Label(new Rect(10, 10, 100, 20), "Score :" + score);
+
+
+		GUI.Label(new Rect(40, 35, 100, 20), "X" +mouvement.chance);
 	}
+
 }

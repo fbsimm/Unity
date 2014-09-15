@@ -12,7 +12,7 @@ public class mouvement : MonoBehaviour {
 	public float jumpForce = 700f;
 	private bool sliding;
 	private bool punch;
-	private float chance = 3f;
+	public static int chance = 3;
 	private bool mort = false;
 	private bool depart = true;
 
@@ -138,7 +138,7 @@ public class mouvement : MonoBehaviour {
 			if(!mort){
 				chance--;
 				mort = true;
-				print ("Vous ete mort, il vous reste " + chance + " vie");
+				print ("Vous ete 2 mort, il vous reste " + chance + " vie");
 				anim.SetBool("Dead", true);
 			}
 		}
