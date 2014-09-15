@@ -49,7 +49,6 @@ public class mouvement : MonoBehaviour {
 		if(timer >= 3){
 			transform.position = new Vector3(-4.729806f,transform.position.y, transform.position.z);
 			mort = false;
-			anim.SetBool("Dead", false);
 			timer = Time.deltaTime;
 		}
 		//Punch
@@ -60,7 +59,7 @@ public class mouvement : MonoBehaviour {
 				circle.center = new Vector2(0.36f, 0.12f);
 				circle.isTrigger = true;
 			}
-			anim.SetBool("Punch", true);
+			anim.SetTrigger("Punch");
 			punch = true;
 			timer_punch = 0;
 		}
@@ -71,7 +70,7 @@ public class mouvement : MonoBehaviour {
 		}
 		//Slide
 		if(grounded && Input.GetKeyDown(KeyCode.DownArrow)){
-			anim.SetBool("sliding", true);
+			anim.SetTrigger("sliding");
 			box.size = new Vector2 (0.97f, 0.55f);
 			box.center = new Vector2 (0, -0.17f);
 			sliding = true;
@@ -86,13 +85,11 @@ public class mouvement : MonoBehaviour {
 			timer_punch += Time.deltaTime;
 			if(timer_punch >= 1){
 				punch = false;
-				anim.SetBool("Punch", false);
 				timer_punch = 0;
 				Destroy(GetComponent<CircleCollider2D>());
 			}
 			if(grounded && Input.GetKeyDown(KeyCode.UpArrow)){
 				punch = false;
-				anim.SetBool("Punch", false);
 				timer_punch = 0;
 			}
 		}
@@ -100,7 +97,6 @@ public class mouvement : MonoBehaviour {
 		if(sliding){
 			timer_slide += Time.deltaTime;
 			if(timer_slide >= 1){
-				anim.SetBool("sliding", false);
 				box.size = new Vector2 (0.66f, 0.9f);
 				box.center = new Vector2 (0, 0);
 				sliding = false;
@@ -108,7 +104,6 @@ public class mouvement : MonoBehaviour {
 			}
 			if(grounded && Input.GetKeyDown(KeyCode.UpArrow)){
 				sliding = false;
-				anim.SetBool("sliding", false);
 				timer_slide = 0;
 			}
 		}
@@ -139,7 +134,7 @@ public class mouvement : MonoBehaviour {
 				chance--;
 				mort = true;
 				print ("Vous ete mort, il vous reste " + chance + " vie");
-				anim.SetBool("Dead", true);
+				anim.SetTrigger("Dead");
 			}
 		}
 		
