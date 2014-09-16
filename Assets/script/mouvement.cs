@@ -133,13 +133,13 @@ public class mouvement : MonoBehaviour {
 			if(!mort){
 				chance--;
 				mort = true;
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 				print ("Vous ete mort, il vous reste " + chance + " vie");
 				anim.SetTrigger("Dead");
-=======
+/*=======*/
 				print ("Vous ete 2 mort, il vous reste " + chance + " vie");
 				anim.SetBool("Dead", true);
->>>>>>> Patrick_lvl1
+/*>>>>>>> Patrick_lvl1*/
 			}
 		}
 		
