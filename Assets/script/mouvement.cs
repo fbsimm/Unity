@@ -28,7 +28,6 @@ public class mouvement : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator>();
 
-
 		//Init pour le temps
 		timer = 0;
 		timer_punch = 0;
@@ -49,7 +48,10 @@ public class mouvement : MonoBehaviour {
 		if(timer >= 3){
 			transform.position = new Vector3(-4.729806f,transform.position.y, transform.position.z);
 			mort = false;
-			timer = Time.deltaTime;
+			depart = true;
+			timer = 0;
+			timer_debut = 0;
+			anim.Play("Idle");
 		}
 		//Punch
 		if(grounded && Input.GetKeyDown(KeyCode.Space)){
@@ -133,13 +135,7 @@ public class mouvement : MonoBehaviour {
 			if(!mort){
 				chance--;
 				mort = true;
-/*<<<<<<< HEAD*/
-				print ("Vous ete mort, il vous reste " + chance + " vie");
 				anim.SetTrigger("Dead");
-/*=======*/
-				print ("Vous ete 2 mort, il vous reste " + chance + " vie");
-				anim.SetBool("Dead", true);
-/*>>>>>>> Patrick_lvl1*/
 			}
 		}
 		
