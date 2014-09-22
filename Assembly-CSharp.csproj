@@ -52,6 +52,7 @@
      <Compile Include="Assets\script\initScore.cs" />
      <Compile Include="Assets\script\mouvEnnemi.cs" />
      <Compile Include="Assets\script\mouvement.cs" />
+     <Compile Include="Assets\script\mouvementBackground.cs" />
      <Compile Include="Assets\script\objetBonus.cs" />
      <Compile Include="Assets\script\respawner.cs" />
   </ItemGroup>
