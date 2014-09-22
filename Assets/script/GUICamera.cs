@@ -6,8 +6,8 @@ public class GUICamera : MonoBehaviour {
 	public static int score = 0;
 	public Texture2D coeur;
 
-	float virtualWidth = 600f;
-	float virtualHeight = 400f;
+	private float virtualWidth = 600f;
+	private float virtualHeight = 400f;
 
 	private Vector3 scale;
 	
@@ -25,6 +25,7 @@ public class GUICamera : MonoBehaviour {
 
 	void OnGUI() {
 
+		//Grosseur de l'écran divisé par la grosseur souhaité
 		scale.x = Screen.width / virtualWidth;
 		scale.y = Screen.height / virtualHeight;
 		scale.z = 1;
