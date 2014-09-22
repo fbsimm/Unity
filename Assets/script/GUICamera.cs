@@ -42,6 +42,8 @@ public class GUICamera : MonoBehaviour {
 		GUI.Label(new Rect(5, 15, coeur.width, coeur.height), coeur);
 
 		GUI.matrix = svMat;
+
+		print(Time.realtimeSinceStartup);
 	}
 
 }
