@@ -43,7 +43,7 @@ public class GUICamera : MonoBehaviour {
 
 		GUI.matrix = svMat;
 
-		print(Time.realtimeSinceStartup);
+		//print(Time.realtimeSinceStartup);
 	}
 
 }
