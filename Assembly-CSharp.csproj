@@ -55,6 +55,7 @@
      <Compile Include="Assets\script\mouvementBackground.cs" />
      <Compile Include="Assets\script\nextSection.cs" />
      <Compile Include="Assets\script\objetBonus.cs" />
+     <Compile Include="Assets\script\randomCoulMur.cs" />
      <Compile Include="Assets\script\respawner.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
