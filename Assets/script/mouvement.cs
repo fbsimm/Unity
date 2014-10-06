@@ -76,7 +76,7 @@ public class mouvement : MonoBehaviour {
 
 			//Saut
 			if(grounded && Input.GetButtonDown("Jump")){
-				anim.SetBool("grounded", false);
+				anim.SetTrigger ("Saut");
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 
