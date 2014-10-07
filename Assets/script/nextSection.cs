@@ -3,7 +3,8 @@ using System.Collections;
 
 public class nextSection : MonoBehaviour {
 	//Tableau contenant toutes les differentes scenes des niveaux
-	public string[] level1Section = new string[9] {"L1_S1", "L1_S2", "L1_S3", "L1_S4", "L1_S5", "L1_S6", "L1_S7", "L1_S8", "L1_S9"};
+	public string[] level1Section = new string[3] {"L1_S1", "L1_S2", "L1_S3"};
+	//public string[] level1Section = new string[9] {"L1_S1", "L1_S2", "L1_S3", "L1_S4", "L1_S5", "L1_S6", "L1_S7", "L1_S8", "L1_S9"};
 	public string[] level2Section = new string[9] {"L2_S1", "L2_S2", "L2_S3", "L2_S4", "L2_S5", "L2_S6", "L2_S7", "L2_S8", "L2_S9"};
 	public string[] level3Section = new string[9] {"L3_S1", "L3_S2", "L3_S3", "L3_S4", "L3_S5", "L3_S6", "L3_S7", "L3_S8", "L3_S9"};
 	public string[] level4Section = new string[9] {"L4_S1", "L4_S2", "L4_S3", "L4_S4", "L4_S5", "L4_S6", "L4_S7", "L4_S8", "L4_S9"};
