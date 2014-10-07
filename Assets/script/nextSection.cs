@@ -11,6 +11,7 @@ public class nextSection : MonoBehaviour {
 
 	private int level;
 	private int random;
+	private int maxArray;
 
 	void OnTriggerEnter2D(Collider2D other) {
 		//On va chercher le nom de la derniere scene chargee
@@ -26,9 +27,9 @@ public class nextSection : MonoBehaviour {
 		case "L1_S7":
 		case "L1_S8":
 		case "L1_S9":	//On refait un random pour chargee une differente scene du meme niveau
+						maxArray = level1Section.Length;
 						do{
-							random = Random.Range(0, 3);
-							//random = Random.Range(0, 9);
+							random = Random.Range(0, maxArray);
 						}while(currentScene == level1Section[random]);
 			       		Application.LoadLevel(level1Section[random]);
 						print (level1Section[random]);
@@ -42,9 +43,9 @@ public class nextSection : MonoBehaviour {
 		case "L2_S6":
 		case "L2_S7":
 		case "L2_S8":
-		case "L2_S9":	do{
-							random = Random.Range(0, 3);
-							//random = Random.Range(0, 9);
+		case "L2_S9":	maxArray = level2Section.Length;
+						do{
+							random = Random.Range(0, maxArray);
 						}while(currentScene == level2Section[random]);
 						Application.LoadLevel(level2Section[random]);
 						print (level2Section[random]);
@@ -58,9 +59,9 @@ public class nextSection : MonoBehaviour {
 		case "L3_S6":
 		case "L3_S7":
 		case "L3_S8":
-		case "L3_S9":	do{
-							random = Random.Range(0, 3);
-							//random = Random.Range(0, 9);
+		case "L3_S9":	maxArray = level3Section.Length;
+						do{
+							random = Random.Range(0, maxArray);
 						}while(currentScene == level3Section[random]);
 						Application.LoadLevel(level3Section[random]);
 						print (level3Section[random]);
@@ -74,9 +75,9 @@ public class nextSection : MonoBehaviour {
 		case "L4_S6":
 		case "L4_S7":
 		case "L4_S8":
-		case "L4_S9":	do{
-							random = Random.Range(0, 3);
-							//random = Random.Range(0, 9);
+		case "L4_S9":	maxArray = level4Section.Length;
+						do{
+							random = Random.Range(0, maxArray);
 						}while(currentScene == level4Section[random]);
 						Application.LoadLevel(level4Section[random]);
 						print (level4Section[random]);
@@ -90,9 +91,9 @@ public class nextSection : MonoBehaviour {
 		case "L5_S6":
 		case "L5_S7":
 		case "L5_S8":
-		case "L5_S9":	do{
-							random = Random.Range(0, 3);
-							//random = Random.Range(0, 9);
+		case "L5_S9":	maxArray = level5Section.Length;
+						do{
+							random = Random.Range(0, maxArray);
 						}while(currentScene == level5Section[random]);
 						Application.LoadLevel(level5Section[random]);
 						print (level5Section[random]);
