@@ -60,9 +60,9 @@ public class mouvement : MonoBehaviour {
 			anim.Play("Idle");
 		}
 
-		if(!mort){
+		if(!mort && !punch && !sliding){
 			//Punch
-			if(grounded && Input.GetButtonDown("Punch")){
+			if(grounded && Input.GetButtonDown("Punch") && !sliding){
 				if(!punch){
 					CircleCollider2D circle = gameObject.AddComponent("CircleCollider2D") as CircleCollider2D;
 					circle.radius = 0.12f;
@@ -75,13 +75,13 @@ public class mouvement : MonoBehaviour {
 			}
 
 			//Saut
-			if(grounded && Input.GetButtonDown("Jump")){
+			if(grounded && Input.GetButtonDown("Jump") && !punch && !sliding){
 				anim.SetTrigger ("Saut");
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 
 			//Slide
-			if(grounded && Input.GetButtonDown("Slide")){
+			if(grounded && Input.GetButtonDown("Slide") && !punch){
 				anim.SetTrigger("sliding");
 				box.size = new Vector2 (0.97f, 0.55f);
 				box.center = new Vector2 (0, -0.17f);
@@ -99,14 +99,10 @@ public class mouvement : MonoBehaviour {
 		if(punch){
 			timer_punch += Time.deltaTime;
 			if(timer_punch >= 0.5f){
-				punch = false;
+				Destroy(GetComponent<CircleCollider2D>());
 				anim.SetTrigger("Run");
 				timer_punch = 0;
-				Destroy(GetComponent<CircleCollider2D>());
-			}
-			if(grounded && Input.GetButtonDown("Slide") || grounded && Input.GetButtonDown("Jump")){
 				punch = false;
-				timer_punch = 0;
 			}
 		}
 
@@ -116,13 +112,9 @@ public class mouvement : MonoBehaviour {
 			if(timer_slide >= 1){
 				box.size = new Vector2 (0.66f, 0.9f);
 				box.center = new Vector2 (0, 0);
-				sliding = false;
 				anim.SetTrigger("Run");
 				timer_slide = 0;
-			}
-			if(grounded && Input.GetButtonDown("Punch") || grounded && Input.GetButtonDown("Jump")){
 				sliding = false;
-				timer_slide = 0;
 			}
 		}
 	}
