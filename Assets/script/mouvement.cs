@@ -97,24 +97,28 @@ public class mouvement : MonoBehaviour {
 
 		//Compteur pour le punch
 		if(punch){
-			timer_punch += Time.deltaTime;
 			if(timer_punch >= 0.5f){
+				punch = false;
+				timer_punch = 0;
 				Destroy(GetComponent<CircleCollider2D>());
 				anim.SetTrigger("Run");
-				timer_punch = 0;
-				punch = false;
+			}
+			else{
+				timer_punch += Time.deltaTime;
 			}
 		}
 
 		//Compteur pour le slide
 		if(sliding){
-			timer_slide += Time.deltaTime;
 			if(timer_slide >= 1){
+				sliding = false;
+				timer_slide = 0;
 				box.size = new Vector2 (0.66f, 0.9f);
 				box.center = new Vector2 (0, 0);
 				anim.SetTrigger("Run");
-				timer_slide = 0;
-				sliding = false;
+			}
+			else{
+				timer_slide += Time.deltaTime;
 			}
 		}
 	}
