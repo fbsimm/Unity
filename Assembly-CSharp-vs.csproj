@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\script\GUICamera.cs" />
      <Compile Include="Assets\script\Menu.cs" />
+     <Compile Include="Assets\script\RendererExtensions.cs" />
+     <Compile Include="Assets\script\ScrollingScript.cs" />
      <Compile Include="Assets\script\collision.cs" />
      <Compile Include="Assets\script\initScore.cs" />
      <Compile Include="Assets\script\mouvEnnemi.cs" />
