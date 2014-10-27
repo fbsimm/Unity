@@ -22,7 +22,7 @@ public class mouvement : MonoBehaviour {
 	Animator anim;
 
 	// Var pour le temps.
-	double timer;
+	public static double timer;
 	double timer_punch;
 	double timer_slide;
 	double timer_debut;
@@ -152,7 +152,6 @@ public class mouvement : MonoBehaviour {
 		}
 		if (coll.gameObject.tag == "Bureau") {
 			collisionBureau = true;
-			print("collision bureau");
 		} 
 	}
 
@@ -160,7 +159,6 @@ public class mouvement : MonoBehaviour {
 		if (coll.gameObject.tag == "Bureau")
 		{
 				collisionBureau = false;
-				print("collision bureau false");
 			} 
 		}
 
@@ -180,7 +178,10 @@ public class mouvement : MonoBehaviour {
 		if (coll.gameObject.tag == "Bureau") {
 			if(timer_slide >= 0.9f){
 				timer_slide = 0.9f;
+
 			}
+			if (collisionBureau)
+				collisionBureau = false;
 		}
 	}
 }
