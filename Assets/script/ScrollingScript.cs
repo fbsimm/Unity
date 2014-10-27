@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -32,9 +33,12 @@ public class ScrollingScript : MonoBehaviour
 	/// </summary>
 	private List<Transform> backgroundPart;
 	
+	public bool collisionBureau = false;
+
 	// 3 - Get all the children
 	void Start()
 	{
+
 		// For infinite background only
 		if (isLooping)
 		{
@@ -61,24 +65,26 @@ public class ScrollingScript : MonoBehaviour
 				).ToList();
 		}
 	}
-	
+
 	void Update()
 	{
+
+
 		// Movement
-		Vector3 movement = new Vector3(
-			speed.x * direction.x,
-			speed.y * direction.y,
-			0);
+		if (!mouvement.depart && !mouvement.mort && !mouvement.collisionBureau) {
+						Vector3 movement = new Vector3 (
+				speed.x * direction.x,
+				speed.y * direction.y,
+				0);
+			
+						movement *= Time.deltaTime;
+						transform.Translate (movement);
 		
-		movement *= Time.deltaTime;
-		transform.Translate(movement);
-		
-		// Move the camera
-		if (isLinkedToCamera)
-		{
-			Camera.main.transform.Translate(movement);
-		}
-		
+						// Move the camera
+						if (isLinkedToCamera) {
+								Camera.main.transform.Translate (movement);
+						}
+				}
 		// 4 - Loop
 		if (isLooping)
 		{

@@ -12,6 +12,5 @@ public class randomCoulMur : MonoBehaviour {
 		maxArray = arrayMur.Length;
 		random = Random.Range(0, maxArray);
 		this.GetComponent<SpriteRenderer>().sprite = arrayMur[random];
-		print (this.GetComponent<SpriteRenderer>().sprite);
 	}
 }

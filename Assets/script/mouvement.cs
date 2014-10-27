@@ -14,8 +14,9 @@ public class mouvement : MonoBehaviour {
 	private bool sliding;
 	private bool punch;
 	public static int chance = 3;
-	private bool mort = false;
-	private bool depart = true;
+	public static bool mort = false;
+	public static bool depart = true;
+	public static bool collisionBureau = false;
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
 	Animator anim;
@@ -140,16 +141,28 @@ public class mouvement : MonoBehaviour {
 	}
 
 	//Aussitôt que le joueur est en collision avec un ennemi, on perd une vie.
-	void OnCollisionStay2D(Collision2D coll) {
+	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Ennemi") {
 			if(!mort){
 				chance--;
 				mort = true;
 				anim.SetTrigger("Dead");
 			}
-		}
 		
+		}
+		if (coll.gameObject.tag == "Bureau") {
+			collisionBureau = true;
+			print("collision bureau");
+		} 
 	}
+
+	void OnCollisionExit2D(Collision2D coll) {
+		if (coll.gameObject.tag == "Bureau")
+		{
+				collisionBureau = false;
+				print("collision bureau false");
+			} 
+		}
 
 	//Si on frappe l'ennemie, on le détruit et on ajoute les points.
 	void OnTriggerEnter2D(Collider2D coll){
