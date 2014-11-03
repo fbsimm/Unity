@@ -16,6 +16,7 @@ public class mouvement : MonoBehaviour {
 	public static int chance = 3;
 	private bool mort = false;
 	private bool depart = true;
+	int pipi = 0;
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
 	Animator anim;
@@ -69,6 +70,7 @@ public class mouvement : MonoBehaviour {
 					circle.center = new Vector2(0.36f, 0.12f);
 					circle.isTrigger = true;
 				}
+				anim.ResetTrigger("Run");
 				anim.SetTrigger("Punch");
 				punch = true;
 				timer_punch = 0;
@@ -76,12 +78,14 @@ public class mouvement : MonoBehaviour {
 
 			//Saut
 			if(grounded && Input.GetButtonDown("Jump") && !punch && !sliding){
+				anim.ResetTrigger("Run");
 				anim.SetTrigger ("Saut");
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 
 			//Slide
 			if(grounded && Input.GetButtonDown("Slide") && !punch){
+				anim.ResetTrigger("Run");
 				anim.SetTrigger("sliding");
 				box.size = new Vector2 (0.97f, 0.55f);
 				box.center = new Vector2 (0, -0.17f);
@@ -99,9 +103,9 @@ public class mouvement : MonoBehaviour {
 		if(punch){
 			timer_punch += Time.deltaTime;
 			if(timer_punch >= 0.5f){
+				timer_punch = 0;
 				Destroy(GetComponent<CircleCollider2D>());
 				anim.SetTrigger("Run");
-				timer_punch = 0;
 				punch = false;
 			}
 		}
@@ -110,10 +114,10 @@ public class mouvement : MonoBehaviour {
 		if(sliding){
 			timer_slide += Time.deltaTime;
 			if(timer_slide >= 1){
+				timer_slide = 0;
 				box.size = new Vector2 (0.66f, 0.9f);
 				box.center = new Vector2 (0, 0);
 				anim.SetTrigger("Run");
-				timer_slide = 0;
 				sliding = false;
 			}
 		}
