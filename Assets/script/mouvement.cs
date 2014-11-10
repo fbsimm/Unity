@@ -16,7 +16,6 @@ public class mouvement : MonoBehaviour {
 	public static int chance = 3;
 	private bool mort = false;
 	private bool depart = true;
-	int pipi = 0;
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
 	Animator anim;
