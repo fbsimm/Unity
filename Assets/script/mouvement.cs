@@ -109,10 +109,6 @@ public class mouvement : MonoBehaviour {
 			}
 			else{
 				timer_punch += Time.deltaTime;
-				timer_punch = 0;
-				Destroy(GetComponent<CircleCollider2D>());
-				anim.SetTrigger("Run");
-				punch = false;
 			}
 		}
 
@@ -127,7 +123,6 @@ public class mouvement : MonoBehaviour {
 			}
 			else{
 				timer_slide += Time.deltaTime;
-				sliding = false;
 			}
 		}
 	}
@@ -168,8 +163,7 @@ public class mouvement : MonoBehaviour {
 	}
 
 	void OnCollisionExit2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Bureau")
-		{
+		if (coll.gameObject.tag == "Bureau"){
 				collisionBureau = false;
 			} 
 		}
@@ -190,10 +184,7 @@ public class mouvement : MonoBehaviour {
 		if (coll.gameObject.tag == "Bureau") {
 			if(timer_slide >= 0.9f){
 				timer_slide = 0.9f;
-
 			}
-			if (collisionBureau)
-				collisionBureau = false;
 		}
 	}
 }
