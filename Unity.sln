@@ -18,12 +18,15 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 																					GlobalSection(MonoDevelopProperties) = preSolution
+<<<<<<< HEAD
 =======
 																				GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> origin/KyllianSixOctobre
 =======
 																											GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> origin/PatrickSixOctobre
+=======
+>>>>>>> KyllianSixOctobre
 =======
 													GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> origin/Patrick
