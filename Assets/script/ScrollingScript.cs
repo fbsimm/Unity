@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -31,10 +32,11 @@ public class ScrollingScript : MonoBehaviour
 	/// 2 - List of children with a renderer.
 	/// </summary>
 	private List<Transform> backgroundPart;
-	
+
 	// 3 - Get all the children
 	void Start()
 	{
+
 		// For infinite background only
 		if (isLooping)
 		{
@@ -61,24 +63,29 @@ public class ScrollingScript : MonoBehaviour
 				).ToList();
 		}
 	}
-	
+
 	void Update()
 	{
-		// Movement
-		Vector3 movement = new Vector3(
-			speed.x * direction.x,
-			speed.y * direction.y,
-			0);
-		
-		movement *= Time.deltaTime;
-		transform.Translate(movement);
-		
-		// Move the camera
-		if (isLinkedToCamera)
-		{
-			Camera.main.transform.Translate(movement);
+
+		if(mouvement.timer >= 3){
+			transform.position = new Vector3(-4.729806f,transform.position.y, transform.position.z);
 		}
+
+		// Movement
+		if (!mouvement.depart && !mouvement.mort && !mouvement.collisionBureau) {
+						Vector3 movement = new Vector3 (
+				speed.x * direction.x,
+				speed.y * direction.y,
+				0);
+			
+						movement *= Time.deltaTime;
+						transform.Translate (movement);
 		
+						// Move the camera
+						if (isLinkedToCamera) {
+								Camera.main.transform.Translate (movement);
+						}
+				}
 		// 4 - Loop
 		if (isLooping)
 		{
@@ -88,6 +95,8 @@ public class ScrollingScript : MonoBehaviour
 			
 			if (firstChild != null)
 			{
+
+
 				// Check if the child is already (partly) before the camera.
 				// We test the position first because the IsVisibleFrom
 				// method is a bit heavier to execute.
@@ -107,11 +116,25 @@ public class ScrollingScript : MonoBehaviour
 						// the last child.
 						// Note: Only work for horizontal scrolling currently.
 						firstChild.position = new Vector3(lastPosition.x + lastSize.x, firstChild.position.y, firstChild.position.z);
-						
+
+						if(mouvement.timer >= 3){
+
+							if(firstChild.tag == "Background_Ville"){
+								firstChild.position = new Vector3(0, firstChild.position.y, firstChild.position.z);
+								lastChild.position = new Vector3(14, lastChild.position.y, lastChild.position.z);
+							}
+							else {
+							firstChild.position = new Vector3(30, firstChild.position.y, firstChild.position.z);
+							lastChild.position = new Vector3(104, lastChild.position.y, lastChild.position.z);
+							}
+						}
+
 						// Set the recycled child to the last position
 						// of the backgroundPart list.
 						backgroundPart.Remove(firstChild);
 						backgroundPart.Add(firstChild);
+
+
 					}
 				}
 			}
