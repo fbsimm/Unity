@@ -14,18 +14,11 @@ public class mouvement : MonoBehaviour {
 	private bool sliding;
 	private bool punch;
 	public static int chance = 3;
-<<<<<<< HEAD
 	public static bool mort = false;
 	public static bool depart = true;
 	public static bool collisionBureau = false;
-=======
 	private bool mort = false;
 	private bool depart = true;
-	int pipi = 0;
-<<<<<<< HEAD
->>>>>>> KyllianSixOctobre
-=======
->>>>>>> KyllianSixOctobre
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
 	Animator anim;
@@ -111,8 +104,6 @@ public class mouvement : MonoBehaviour {
 		//Compteur pour le punch
 		if(punch){
 			if(timer_punch >= 0.5f){
-<<<<<<< HEAD
-<<<<<<< HEAD
 				punch = false;
 				timer_punch = 0;
 				Destroy(GetComponent<CircleCollider2D>());
@@ -120,44 +111,25 @@ public class mouvement : MonoBehaviour {
 			}
 			else{
 				timer_punch += Time.deltaTime;
-=======
 				timer_punch = 0;
 				Destroy(GetComponent<CircleCollider2D>());
 				anim.SetTrigger("Run");
-=======
-				timer_punch = 0;
-				Destroy(GetComponent<CircleCollider2D>());
-				anim.SetTrigger("Run");
->>>>>>> KyllianSixOctobre
 				punch = false;
->>>>>>> KyllianSixOctobre
 			}
 		}
 
 		//Compteur pour le slide
 		if(sliding){
 			if(timer_slide >= 1){
-<<<<<<< HEAD
-<<<<<<< HEAD
 				sliding = false;
-=======
->>>>>>> KyllianSixOctobre
-=======
->>>>>>> KyllianSixOctobre
 				timer_slide = 0;
 				box.size = new Vector2 (0.66f, 0.9f);
 				box.center = new Vector2 (0, 0);
 				anim.SetTrigger("Run");
-<<<<<<< HEAD
-<<<<<<< HEAD
 			}
 			else{
 				timer_slide += Time.deltaTime;
-=======
-=======
->>>>>>> KyllianSixOctobre
 				sliding = false;
->>>>>>> KyllianSixOctobre
 			}
 		}
 	}
