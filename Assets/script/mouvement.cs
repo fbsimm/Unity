@@ -14,9 +14,15 @@ public class mouvement : MonoBehaviour {
 	private bool sliding;
 	private bool punch;
 	public static int chance = 3;
+<<<<<<< HEAD
 	public static bool mort = false;
 	public static bool depart = true;
 	public static bool collisionBureau = false;
+=======
+	private bool mort = false;
+	private bool depart = true;
+	int pipi = 0;
+>>>>>>> KyllianSixOctobre
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
 	Animator anim;
@@ -70,6 +76,7 @@ public class mouvement : MonoBehaviour {
 					circle.center = new Vector2(0.36f, 0.12f);
 					circle.isTrigger = true;
 				}
+				anim.ResetTrigger("Run");
 				anim.SetTrigger("Punch");
 				punch = true;
 				timer_punch = 0;
@@ -77,12 +84,14 @@ public class mouvement : MonoBehaviour {
 
 			//Saut
 			if(grounded && Input.GetButtonDown("Jump") && !punch && !sliding){
+				anim.ResetTrigger("Run");
 				anim.SetTrigger ("Saut");
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 
 			//Slide
 			if(grounded && Input.GetButtonDown("Slide") && !punch){
+				anim.ResetTrigger("Run");
 				anim.SetTrigger("sliding");
 				box.size = new Vector2 (0.97f, 0.55f);
 				box.center = new Vector2 (0, -0.17f);
@@ -99,6 +108,7 @@ public class mouvement : MonoBehaviour {
 		//Compteur pour le punch
 		if(punch){
 			if(timer_punch >= 0.5f){
+<<<<<<< HEAD
 				punch = false;
 				timer_punch = 0;
 				Destroy(GetComponent<CircleCollider2D>());
@@ -106,20 +116,33 @@ public class mouvement : MonoBehaviour {
 			}
 			else{
 				timer_punch += Time.deltaTime;
+=======
+				timer_punch = 0;
+				Destroy(GetComponent<CircleCollider2D>());
+				anim.SetTrigger("Run");
+				punch = false;
+>>>>>>> KyllianSixOctobre
 			}
 		}
 
 		//Compteur pour le slide
 		if(sliding){
 			if(timer_slide >= 1){
+<<<<<<< HEAD
 				sliding = false;
+=======
+>>>>>>> KyllianSixOctobre
 				timer_slide = 0;
 				box.size = new Vector2 (0.66f, 0.9f);
 				box.center = new Vector2 (0, 0);
 				anim.SetTrigger("Run");
+<<<<<<< HEAD
 			}
 			else{
 				timer_slide += Time.deltaTime;
+=======
+				sliding = false;
+>>>>>>> KyllianSixOctobre
 			}
 		}
 	}
