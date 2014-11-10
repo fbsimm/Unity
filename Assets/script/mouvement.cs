@@ -22,6 +22,9 @@ public class mouvement : MonoBehaviour {
 	private bool mort = false;
 	private bool depart = true;
 	int pipi = 0;
+<<<<<<< HEAD
+>>>>>>> KyllianSixOctobre
+=======
 >>>>>>> KyllianSixOctobre
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
@@ -109,6 +112,7 @@ public class mouvement : MonoBehaviour {
 		if(punch){
 			if(timer_punch >= 0.5f){
 <<<<<<< HEAD
+<<<<<<< HEAD
 				punch = false;
 				timer_punch = 0;
 				Destroy(GetComponent<CircleCollider2D>());
@@ -120,6 +124,11 @@ public class mouvement : MonoBehaviour {
 				timer_punch = 0;
 				Destroy(GetComponent<CircleCollider2D>());
 				anim.SetTrigger("Run");
+=======
+				timer_punch = 0;
+				Destroy(GetComponent<CircleCollider2D>());
+				anim.SetTrigger("Run");
+>>>>>>> KyllianSixOctobre
 				punch = false;
 >>>>>>> KyllianSixOctobre
 			}
@@ -129,7 +138,10 @@ public class mouvement : MonoBehaviour {
 		if(sliding){
 			if(timer_slide >= 1){
 <<<<<<< HEAD
+<<<<<<< HEAD
 				sliding = false;
+=======
+>>>>>>> KyllianSixOctobre
 =======
 >>>>>>> KyllianSixOctobre
 				timer_slide = 0;
@@ -137,10 +149,13 @@ public class mouvement : MonoBehaviour {
 				box.center = new Vector2 (0, 0);
 				anim.SetTrigger("Run");
 <<<<<<< HEAD
+<<<<<<< HEAD
 			}
 			else{
 				timer_slide += Time.deltaTime;
 =======
+=======
+>>>>>>> KyllianSixOctobre
 				sliding = false;
 >>>>>>> KyllianSixOctobre
 			}
