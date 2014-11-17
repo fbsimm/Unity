@@ -68,7 +68,7 @@ public class ScrollingScript : MonoBehaviour
 	{
 
 		if(mouvement.timer >= 3){
-			transform.position = new Vector3(-4.729806f,transform.position.y, transform.position.z);
+			this.transform.position = new Vector3(0,transform.position.y, transform.position.z);
 		}
 
 		// Movement
@@ -117,17 +117,6 @@ public class ScrollingScript : MonoBehaviour
 						// Note: Only work for horizontal scrolling currently.
 						firstChild.position = new Vector3(lastPosition.x + lastSize.x, firstChild.position.y, firstChild.position.z);
 
-						if(mouvement.timer >= 3){
-
-							if(firstChild.tag == "Background_Ville"){
-								firstChild.position = new Vector3(0, firstChild.position.y, firstChild.position.z);
-								lastChild.position = new Vector3(14, lastChild.position.y, lastChild.position.z);
-							}
-							else {
-							firstChild.position = new Vector3(30, firstChild.position.y, firstChild.position.z);
-							lastChild.position = new Vector3(104, lastChild.position.y, lastChild.position.z);
-							}
-						}
 
 						// Set the recycled child to the last position
 						// of the backgroundPart list.
