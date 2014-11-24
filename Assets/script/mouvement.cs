@@ -26,6 +26,7 @@ public class mouvement : MonoBehaviour {
 	double timer_punch;
 	double timer_slide;
 	double timer_debut;
+	double timer_mort;
 
 	// Initialiser les trucs.
 	void Start () {
@@ -36,6 +37,7 @@ public class mouvement : MonoBehaviour {
 		timer_punch = 0;
 		timer_slide = 0;
 		timer_debut = 0;
+		timer_mort = 0;
 	}
 	
 	// Appelé a chaques frame que l'appareil génère.
@@ -96,8 +98,16 @@ public class mouvement : MonoBehaviour {
 		//Trucs pour le temps
 
 		//Compteur pour le respawn
-		if(mort)
-			timer += Time.deltaTime;
+		if(mort){
+			if(chance != 0){
+				timer += Time.deltaTime;
+			}
+			else
+			{
+				timer_mort += Time.deltaTime;
+			}
+		}
+				
 
 		//Compteur pour le punch
 		if(punch){
@@ -142,6 +152,11 @@ public class mouvement : MonoBehaviour {
 					this.transform.Translate (Vector3.right * maxSpeed);
 				else if (sliding)
 					this.transform.Translate (Vector3.right * maxSpeed / 1.5f);
+			}
+			else{
+				if(timer_mort >= 3){
+					Application.LoadLevel("GameOver");
+				}
 			}
 		}
 
