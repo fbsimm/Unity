@@ -159,14 +159,11 @@ public class mouvement : MonoBehaviour {
 		}
 		if (coll.gameObject.tag == "Bureau") {
 			collisionBureau = true;
-		} 
-	}
-
-	void OnCollisionExit2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Bureau"){
-				collisionBureau = false;
-			} 
 		}
+		else {
+			collisionBureau = false;
+		}
+	}
 
 	//Si on frappe l'ennemie, on le détruit et on ajoute les points.
 	void OnTriggerEnter2D(Collider2D coll){
