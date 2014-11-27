@@ -159,11 +159,9 @@ public class mouvement : MonoBehaviour {
 		}
 		if (coll.gameObject.tag == "Bureau") {
 			collisionBureau = true;
-		}
-		else {
-			collisionBureau = false;
-		}
+		} 
 	}
+	
 
 	//Si on frappe l'ennemie, on le détruit et on ajoute les points.
 	void OnTriggerEnter2D(Collider2D coll){
@@ -175,6 +173,9 @@ public class mouvement : MonoBehaviour {
 			GUICamera.score += 100;
 			Destroy(coll.gameObject);
 		}
+		if (coll.gameObject.tag == "Bureau"){
+			collisionBureau = false;
+		} 
 	}
 
 	void OnTriggerStay2D(Collider2D coll){
