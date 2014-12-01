@@ -13,7 +13,7 @@ public class mouvement : MonoBehaviour {
 	public float jumpForce = 700f;
 	private bool sliding;
 	private bool punch;
-	public static int chance = 3;
+	public static int chance = 0;
 	public static bool mort = false;
 	public static bool depart = true;
 	public static bool collisionBureau = false;
@@ -99,7 +99,7 @@ public class mouvement : MonoBehaviour {
 
 		//Compteur pour le respawn
 		if(mort){
-			if(chance != 0){
+			if(chance >= 0){
 				timer += Time.deltaTime;
 			}
 			else
