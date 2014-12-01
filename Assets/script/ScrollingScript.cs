@@ -12,6 +12,7 @@ public class ScrollingScript : MonoBehaviour
 	/// Scrolling speed
 	/// </summary>
 	public Vector2 speed = new Vector2(10, 10);
+	private Vector2 speed2 = new Vector2(10, 10);
 	
 	/// <summary>
 	/// Moving direction
@@ -71,12 +72,14 @@ public class ScrollingScript : MonoBehaviour
 			this.transform.position = new Vector3(0,transform.position.y, transform.position.z);
 		}
 
+		if (mouvement.sliding)
+			speed2 = new Vector2 (speed.x * 0.7f, speed.y * 0.7f);
+		else
+			speed2 = new Vector2 (speed.x, speed.y);
+
 		// Movement
 		if (!mouvement.depart && !mouvement.mort && !mouvement.collisionBureau) {
-						Vector3 movement = new Vector3 (
-				speed.x * direction.x,
-				speed.y * direction.y,
-				0);
+						Vector3 movement = new Vector3 ( speed2.x * direction.x, speed2.y * direction.y, 0);
 			
 						movement *= Time.deltaTime;
 						transform.Translate (movement);

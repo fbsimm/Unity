@@ -11,7 +11,7 @@ public class mouvement : MonoBehaviour {
 	private float groundRadius = 0.1f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
-	private bool sliding;
+	public static bool sliding;
 	private bool punch;
 	public static int chance = 3;
 	public static bool mort = false;
