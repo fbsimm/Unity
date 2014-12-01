@@ -26,6 +26,7 @@ public class mouvement : MonoBehaviour {
 	double timer_punch;
 	double timer_slide;
 	double timer_debut;
+	double timer_score;
 
 	// Initialiser les trucs.
 	void Start () {
@@ -36,6 +37,7 @@ public class mouvement : MonoBehaviour {
 		timer_punch = 0;
 		timer_slide = 0;
 		timer_debut = 0;
+		timer_score = 0;
 	}
 	
 	// Appelé a chaques frame que l'appareil génère.
@@ -61,7 +63,14 @@ public class mouvement : MonoBehaviour {
 			anim.Play("Idle");
 		}
 
-		if(!mort && !punch && !sliding){
+		if (!mort && !depart) {
+			timer_score +=Time.deltaTime;
+			if(timer_score >= 1 && GUICamera.score > 0){
+					GUICamera.score -= 1;
+					timer_score = 0;
+					}
+				}
+		if(!mort && !punch && !sliding && !depart){
 			//Punch
 			if(grounded && Input.GetButtonDown("Punch") && !sliding){
 				if(!punch){
