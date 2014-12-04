@@ -12,6 +12,7 @@ public class ScrollingScript : MonoBehaviour
 	/// Scrolling speed
 	/// </summary>
 	public Vector2 speed = new Vector2(10, 10);
+	private Vector2 speed2 = new Vector2(10, 10);
 	
 	/// <summary>
 	/// Moving direction
@@ -68,15 +69,17 @@ public class ScrollingScript : MonoBehaviour
 	{
 
 		if(mouvement.timer >= 3){
-			transform.position = new Vector3(-4.729806f,transform.position.y, transform.position.z);
+			this.transform.position = new Vector3(0,transform.position.y, transform.position.z);
 		}
+
+		if (mouvement.sliding)
+			speed2 = new Vector2 (speed.x * 0.7f, speed.y * 0.7f);
+		else
+			speed2 = new Vector2 (speed.x, speed.y);
 
 		// Movement
 		if (!mouvement.depart && !mouvement.mort && !mouvement.collisionBureau) {
-						Vector3 movement = new Vector3 (
-				speed.x * direction.x,
-				speed.y * direction.y,
-				0);
+						Vector3 movement = new Vector3 ( speed2.x * direction.x, speed2.y * direction.y, 0);
 			
 						movement *= Time.deltaTime;
 						transform.Translate (movement);
@@ -117,17 +120,6 @@ public class ScrollingScript : MonoBehaviour
 						// Note: Only work for horizontal scrolling currently.
 						firstChild.position = new Vector3(lastPosition.x + lastSize.x, firstChild.position.y, firstChild.position.z);
 
-						if(mouvement.timer >= 3){
-
-							if(firstChild.tag == "Background_Ville"){
-								firstChild.position = new Vector3(0, firstChild.position.y, firstChild.position.z);
-								lastChild.position = new Vector3(14, lastChild.position.y, lastChild.position.z);
-							}
-							else {
-							firstChild.position = new Vector3(30, firstChild.position.y, firstChild.position.z);
-							lastChild.position = new Vector3(104, lastChild.position.y, lastChild.position.z);
-							}
-						}
 
 						// Set the recycled child to the last position
 						// of the backgroundPart list.

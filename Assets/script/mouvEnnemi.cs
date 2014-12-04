@@ -4,7 +4,7 @@ using System.Collections;
 /// Déplace l'ennemi
 public class mouvEnnemi : MonoBehaviour {
 	
-	private float speed = 50f;
+	/*private float speed = 50f;
 
 
 	// Update is called once per frame
@@ -23,10 +23,11 @@ public class mouvEnnemi : MonoBehaviour {
 						speed = speed * -1;
 						timer_direction = 0;
 				}
-		}
+		}*/
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Sol")
-			rigidbody2D.velocity = new Vector2(speed * Time.deltaTime, 100 * Time.deltaTime);
+			rigidbody2D.velocity = new Vector2(0 * Time.deltaTime, 100 * Time.deltaTime);
+			/*rigidbody2D.velocity = new Vector2(speed * Time.deltaTime, 100 * Time.deltaTime);*/
 	}
 
 	void OnTriggerEnter(Collider coll) {
