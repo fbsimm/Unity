@@ -9,7 +9,6 @@ public class GameOverText : MonoBehaviour{
 	Color couleur;
 	bool depart = false;
 	bool bouton  = false;
-	Menu leBouton;
 	//Rect labelRect;
 
 	// Use this for initialization
@@ -19,7 +18,6 @@ public class GameOverText : MonoBehaviour{
 		couleur.b = 255;
 		couleur.a = 0;
 		style.normal.textColor = couleur;
-		leBouton = new Menu();
 		Invoke ("dragon", 1);
 		Invoke ("boutonAffiche", 3);
 	}
@@ -51,7 +49,8 @@ public class GameOverText : MonoBehaviour{
 		GUI.Label (new Rect ((Screen.width/2)-(pos.x/2), (Screen.height/3)-(pos.y/2), pos.x, pos.y), texte, style);
 
 		if(bouton){
-			leBouton.boutonJouer((Screen.width/2)-(pos.x/2), (Screen.height/2)-(pos.y/2), pos.x, pos.y, "Rejouer");
+			PlayerPrefs.Save();
+			Menu.boutonJouer((Screen.width/2)-(pos.x/2), (Screen.height/2)-(pos.y/2), pos.x, pos.y, "Rejouer");
 		}
 	}
 }

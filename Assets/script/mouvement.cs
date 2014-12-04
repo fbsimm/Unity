@@ -13,10 +13,13 @@ public class mouvement : MonoBehaviour {
 	public float jumpForce = 700f;
 	public static bool sliding;
 	private bool punch;
-	public static int chance = 0;
+	public static int chance = 3;
 	public static bool mort = false;
 	public static bool depart = true;
 	public static bool collisionBureau = false;
+
+	//Sprite pour les ennemies
+	public Sprite targetSprite;
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
 	Animator anim;
@@ -26,11 +29,8 @@ public class mouvement : MonoBehaviour {
 	double timer_punch;
 	double timer_slide;
 	double timer_debut;
-<<<<<<< HEAD
 	double timer_score;
-=======
 	double timer_mort;
->>>>>>> origin/Kyllian-de-dark-souls-regis
 
 	// Initialiser les trucs.
 	void Start () {
@@ -41,11 +41,8 @@ public class mouvement : MonoBehaviour {
 		timer_punch = 0;
 		timer_slide = 0;
 		timer_debut = 0;
-<<<<<<< HEAD
 		timer_score = 0;
-=======
 		timer_mort = 0;
->>>>>>> origin/Kyllian-de-dark-souls-regis
 	}
 	
 	// Appelé a chaques frame que l'appareil génère.
@@ -80,6 +77,13 @@ public class mouvement : MonoBehaviour {
 				}
 		if(!mort && !punch && !sliding && !depart){
 			//Punch
+			if(grounded && gameObject.rigidbody2D.velocity.y <= 0){
+				BoxCollider2D boite = gameObject.GetComponent("BoxCollider2D") as BoxCollider2D;
+				boite.enabled = true;
+				PolygonCollider2D poly = gameObject.GetComponent("PolygonCollider2D") as PolygonCollider2D;
+				poly.enabled = false;
+			}
+
 			if(grounded && Input.GetButtonDown("Punch") && !sliding){
 				if(!punch){
 					CircleCollider2D circle = gameObject.AddComponent("CircleCollider2D") as CircleCollider2D;
@@ -97,6 +101,10 @@ public class mouvement : MonoBehaviour {
 			if(grounded && Input.GetButtonDown("Jump") && !punch && !sliding){
 				anim.ResetTrigger("Run");
 				anim.SetTrigger ("Saut");
+				BoxCollider2D boite = gameObject.GetComponent("BoxCollider2D") as BoxCollider2D;
+				boite.enabled = false;
+				PolygonCollider2D poly = gameObject.GetComponent("PolygonCollider2D") as PolygonCollider2D;
+				poly.enabled = true;
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 
