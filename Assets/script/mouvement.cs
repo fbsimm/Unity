@@ -13,7 +13,7 @@ public class mouvement : MonoBehaviour {
 	public float jumpForce = 700f;
 	public static bool sliding;
 	private bool punch;
-	public static int chance = 3;
+	public static int chance = 0;
 	public static bool mort = false;
 	public static bool depart = true;
 	public static bool collisionBureau = false;
@@ -26,7 +26,11 @@ public class mouvement : MonoBehaviour {
 	double timer_punch;
 	double timer_slide;
 	double timer_debut;
+<<<<<<< HEAD
 	double timer_score;
+=======
+	double timer_mort;
+>>>>>>> origin/Kyllian-de-dark-souls-regis
 
 	// Initialiser les trucs.
 	void Start () {
@@ -37,7 +41,11 @@ public class mouvement : MonoBehaviour {
 		timer_punch = 0;
 		timer_slide = 0;
 		timer_debut = 0;
+<<<<<<< HEAD
 		timer_score = 0;
+=======
+		timer_mort = 0;
+>>>>>>> origin/Kyllian-de-dark-souls-regis
 	}
 	
 	// Appelé a chaques frame que l'appareil génère.
@@ -105,8 +113,16 @@ public class mouvement : MonoBehaviour {
 		//Trucs pour le temps
 
 		//Compteur pour le respawn
-		if(mort)
-			timer += Time.deltaTime;
+		if(mort){
+			if(chance >= 0){
+				timer += Time.deltaTime;
+			}
+			else
+			{
+				timer_mort += Time.deltaTime;
+			}
+		}
+				
 
 		//Compteur pour le punch
 		if(punch){
@@ -151,6 +167,11 @@ public class mouvement : MonoBehaviour {
 					this.transform.Translate (Vector3.right * maxSpeed);
 				else if (sliding)
 					this.transform.Translate (Vector3.right * maxSpeed / 1.5f);
+			}
+			else{
+				if(timer_mort >= 3){
+					Application.LoadLevel("GameOver");
+				}
 			}
 		}
 
