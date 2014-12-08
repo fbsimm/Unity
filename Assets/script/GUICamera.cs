@@ -28,8 +28,6 @@ public class GUICamera : MonoBehaviour {
 
 		GUI.skin = style;
 
-		GUI.Box(new Rect(0, 0, Screen.width, 100), "");
-
 		//Grosseur de l'écran divisé par la grosseur souhaité
 		scale.x = Screen.width / virtualWidth;
 		scale.y = Screen.height / virtualHeight;
@@ -38,6 +36,8 @@ public class GUICamera : MonoBehaviour {
 		Matrix4x4 svMat = GUI.matrix;
 
 		GUI.matrix = Matrix4x4.Scale (scale);
+
+		GUI.Box(new Rect(0, 0, Screen.width, 80), "");
 
 		GUI.Label(new Rect(10, 10, 100, 20), "Score :" + score);
 

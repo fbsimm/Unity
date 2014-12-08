@@ -5,7 +5,7 @@ public class initScore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PlayerPrefs.SetInt ("Score", 0);
+		//PlayerPrefs.SetInt ("Score", 0);
 		GUICamera.score = 0;
 	}
 	

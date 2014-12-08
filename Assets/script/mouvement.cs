@@ -76,7 +76,7 @@ public class mouvement : MonoBehaviour {
 					}
 				}
 		if(!mort && !punch && !sliding && !depart){
-			//Punch
+
 			if(grounded && gameObject.rigidbody2D.velocity.y <= 0){
 				BoxCollider2D boite = gameObject.GetComponent("BoxCollider2D") as BoxCollider2D;
 				boite.enabled = true;
@@ -84,6 +84,7 @@ public class mouvement : MonoBehaviour {
 				poly.enabled = false;
 			}
 
+			//Punch
 			if(grounded && Input.GetButtonDown("Punch") && !sliding){
 				if(!punch){
 					CircleCollider2D circle = gameObject.AddComponent("CircleCollider2D") as CircleCollider2D;
@@ -109,7 +110,7 @@ public class mouvement : MonoBehaviour {
 			}
 
 			//Slide
-			if(grounded && Input.GetButtonDown("Slide") && !punch){
+			if((grounded && Input.GetButtonDown("Slide") && !punch) || (Input.GetTouch(0).phase == TouchPhase.Began)){
 				anim.ResetTrigger("Run");
 				anim.SetTrigger("sliding");
 				box.size = new Vector2 (0.97f, 0.55f);
@@ -178,6 +179,8 @@ public class mouvement : MonoBehaviour {
 			}
 			else{
 				if(timer_mort >= 3){
+					PlayerPrefs.SetInt("Score", GUICamera.score);
+					PlayerPrefs.Save ();
 					Application.LoadLevel("GameOver");
 				}
 			}
