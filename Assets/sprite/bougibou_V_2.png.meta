@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b7e60bd8f27d4969b39f6e83e94bec9
+guid: c2894bd84bc0e4dfc80176bfe49b32c4
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -35,6 +35,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -45,172 +46,181 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 614
-        width: 121
-        height: 124
+        y: 613
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 490
-        width: 121
-        height: 124
+        y: 488
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_2
       rect:
         serializedVersion: 2
-        x: 121
-        y: 490
-        width: 121
-        height: 124
+        x: 123
+        y: 488
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_3
       rect:
         serializedVersion: 2
-        x: 242
-        y: 490
-        width: 121
-        height: 124
+        x: 246
+        y: 488
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_4
       rect:
         serializedVersion: 2
-        x: 363
-        y: 490
-        width: 121
-        height: 124
+        x: 369
+        y: 488
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_5
       rect:
         serializedVersion: 2
-        x: 484
-        y: 490
-        width: 121
-        height: 124
+        x: 492
+        y: 488
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_6
       rect:
         serializedVersion: 2
-        x: 605
-        y: 490
-        width: 121
-        height: 124
+        x: 615
+        y: 488
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_7
       rect:
         serializedVersion: 2
-        x: 726
-        y: 490
-        width: 121
-        height: 124
+        x: 738
+        y: 488
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_8
       rect:
         serializedVersion: 2
-        x: 847
-        y: 490
-        width: 121
-        height: 124
+        x: 861
+        y: 488
+        width: 123
+        height: 125
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_9
       rect:
         serializedVersion: 2
         x: 0
-        y: 366
-        width: 121
-        height: 124
+        y: 363
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_10
       rect:
         serializedVersion: 2
-        x: 121
-        y: 366
-        width: 121
-        height: 124
+        x: 123
+        y: 363
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_11
       rect:
         serializedVersion: 2
-        x: 242
-        y: 366
-        width: 121
-        height: 124
+        x: 246
+        y: 363
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 242
-        width: 121
-        height: 124
+        y: 238
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_13
       rect:
         serializedVersion: 2
-        x: 121
-        y: 242
-        width: 121
-        height: 124
+        x: 123
+        y: 238
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_14
       rect:
         serializedVersion: 2
         x: 0
-        y: 118
-        width: 121
-        height: 124
+        y: 113
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_15
       rect:
         serializedVersion: 2
-        x: 121
-        y: 118
-        width: 121
-        height: 124
+        x: 123
+        y: 113
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_16
       rect:
         serializedVersion: 2
-        x: 242
-        y: 118
-        width: 121
-        height: 124
+        x: 246
+        y: 113
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: bougibou_V_2_17
       rect:
         serializedVersion: 2
-        x: 363
-        y: 118
-        width: 121
-        height: 124
+        x: 369
+        y: 113
+        width: 123
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: bougibou_V_2_18
-      rect:
-        serializedVersion: 2
-        x: 959
-        y: 490
-        width: 121
-        height: 124
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
