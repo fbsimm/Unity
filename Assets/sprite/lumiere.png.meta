@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e70f630a980184df3bc8b1dfb3b155e6
+guid: d36da6acb41cb334fbfd113dac91923e
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -42,93 +42,73 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: bougibou_V_1_3_0
+    - name: lumiere_5
       rect:
         serializedVersion: 2
-        x: 18
-        y: 570
-        width: 68
-        height: 93
+        x: 0
+        y: 0
+        width: 76
+        height: 24
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bougibou_V_1_3_1
+    - name: lumiere_1
       rect:
         serializedVersion: 2
-        x: 92
-        y: 568
-        width: 81
-        height: 95
+        x: 0
+        y: 0
+        width: 76
+        height: 24
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bougibou_V_1_3_2
+    - name: lumiere_2
       rect:
         serializedVersion: 2
-        x: 187
-        y: 569
-        width: 61
-        height: 97
+        x: 0
+        y: 32
+        width: 76
+        height: 24
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bougibou_V_1_3_3
+    - name: lumiere_3
       rect:
         serializedVersion: 2
-        x: 262
-        y: 569
-        width: 49
-        height: 96
+        x: 0
+        y: 64
+        width: 76
+        height: 24
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bougibou_V_1_3_4
+    - name: lumiere_4
       rect:
         serializedVersion: 2
-        x: 330
-        y: 568
-        width: 52
-        height: 97
+        x: 0
+        y: 98
+        width: 76
+        height: 24
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bougibou_V_1_3_5
+    - name: lumiere_5
       rect:
         serializedVersion: 2
-        x: 387
-        y: 572
-        width: 69
-        height: 88
+        x: 0
+        y: 130
+        width: 76
+        height: 24
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bougibou_V_1_3_6
+    - name: lumiere_6
       rect:
         serializedVersion: 2
-        x: 471
-        y: 570
-        width: 55
-        height: 94
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bougibou_V_1_3_7
-      rect:
-        serializedVersion: 2
-        x: 545
-        y: 569
-        width: 53
-        height: 95
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bougibou_V_1_3_8
-      rect:
-        serializedVersion: 2
-        x: 621
-        y: 569
-        width: 60
-        height: 93
+        x: 0
+        y: 162
+        width: 76
+        height: 24
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
