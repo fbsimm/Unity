@@ -21,7 +21,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 1024
+  maxTextureSize: 4096
   textureSettings:
     filterMode: 0
     aniso: 1
@@ -45,112 +45,122 @@ TextureImporter:
     - name: coup_bras_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 698
-        width: 167
-        height: 188
+        x: 0
+        y: 340
+        width: 650
+        height: 228
       alignment: 8
-      pivot: {x: 1, y: 0}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_1
       rect:
         serializedVersion: 2
-        x: 262
-        y: 677
-        width: 232
-        height: 208
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 650
+        y: 340
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_2
       rect:
         serializedVersion: 2
-        x: 540
-        y: 659
-        width: 238
-        height: 224
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 1300
+        y: 340
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_3
       rect:
         serializedVersion: 2
-        x: 822
-        y: 661
-        width: 238
-        height: 224
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 1950
+        y: 340
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_4
       rect:
         serializedVersion: 2
-        x: 1096
-        y: 661
-        width: 246
-        height: 224
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 2600
+        y: 340
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_5
       rect:
         serializedVersion: 2
-        x: 25
-        y: 384
-        width: 279
-        height: 224
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 3250
+        y: 340
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_6
       rect:
         serializedVersion: 2
-        x: 358
-        y: 377
-        width: 292
-        height: 225
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 3900
+        y: 340
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_7
       rect:
         serializedVersion: 2
-        x: 700
-        y: 371
-        width: 314
-        height: 226
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 4550
+        y: 340
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_8
       rect:
         serializedVersion: 2
-        x: 1072
-        y: 375
-        width: 333
-        height: 226
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 5200
+        y: 340
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_9
       rect:
         serializedVersion: 2
-        x: 25
-        y: 62
-        width: 393
-        height: 226
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 0
+        y: 112
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: coup_bras_10
       rect:
         serializedVersion: 2
-        x: 688
-        y: 62
-        width: 512
-        height: 226
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 650
+        y: 112
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: coup_bras_11
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 112
+        width: 650
+        height: 228
+      alignment: 8
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -4,39 +4,26 @@ using System.Collections;
 public class mouvementBoss : MonoBehaviour {
 
 	//Variable généraux.
-	public GameObject Boss;
-	public GameObject Chenille;
-	public GameObject Plateforme;
-	public GameObject Lumiere;
-	public float maxSpeed = 0.05f;
-	private bool grounded = false;
+	public int vie = 3;
+	public bool mort, playerMort = false;
+	public bool depart = true;
+
+	public GameObject boss, chenille, plateforme, lumiere;
 	public Transform groundCheck;
-	private float groundRadius = 0.1f;
 	public LayerMask whatIsGround;
-	private bool laser;
-	private bool coupBras;
-	private bool coupPoing;
-	private bool missiles;
-	public static int vie = 3;
-	public static bool mort = false;
-	public static bool playerMort = false;
-	public static bool depart = true;
+	public float maxSpeed = 0.05f;
+	public float cptAtt, cptCollMissile = 0;
+
+	private bool grounded = false;
+	private float groundRadius = 0.1f;
+	private bool laser, coupBras, coupPoing, missiles;
 	private int random;
-	public float cptAtt = 0;
-	public float cptCollMissile = 0;
-	public static bool openChest = false;
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
 	Animator anim;
 
 	// Var pour le temps.
-	public static
-	double timer_debut;
-	double timer_laser;
-	double timer_coupBras;
-	double timer_coupPoing;
-	double timer_missiles;
-	double timer_playerMort;
+	public double timer_debut, timer_laser, timer_coupBras, timer_coupPoing, timer_missiles, timer_playerMort;
 
 	// Initialiser les trucs.
 	void Start () {
@@ -47,7 +34,7 @@ public class mouvementBoss : MonoBehaviour {
 		timer_coupBras = 0;
 		timer_coupPoing = 0;
 		timer_missiles = 0;
-		timer_playerMort = 0
+		timer_playerMort = 0;
 	}
 	
 	// Appelé a chaques frame que l'appareil génère.
@@ -64,7 +51,7 @@ public class mouvementBoss : MonoBehaviour {
 			}
 		}
 
-		//Quand le personnage meurt, le timer de sa meurt se lance
+		//Quand le personnage meurt, le timer de sa mort se lance.
 		if(playerMort)
 			timer_playerMort += Time.deltaTime;
 		//Quand le personnage meurt, 3 sec avant de retourner au début.
@@ -77,7 +64,7 @@ public class mouvementBoss : MonoBehaviour {
 			anim.Play("idleBoss");
 		}
 
-		if(!depart && !mort && !laser && !coupBras && !coupPoing && !missiles && !openChest && !playerMort){
+		if(!depart && !mort && !laser && !coupBras && !coupPoing && !missiles && !playerMort){
 			random = Random.Range(1, 10);
 			switch(random){
 			case 1:	//laser
@@ -135,20 +122,18 @@ public class mouvementBoss : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Missile") {
-			if(!mort && missiles && !openChest){
+			if(!mort && missiles){
 				cptCollMissile++;
 				if((vie == 3 && cptCollMissile == 1) || (vie == 2 && cptCollMissile == 2) || (vie == 1 && cptCollMissile == 3)){
 					cptCollMissile = 0;
 					missiles = false;
-					//play anim openChest for a couple secs
-					openChest = true;
 				}
 			}
 		}
 		if (coll.gameObject.tag == "Player") {
-			if(!depart && !mort && !laser && !coupBras && !coupPoing && !playerMort && !missiles && openChest){
+			if(!depart && !mort && !laser && !coupBras && !coupPoing && !playerMort && !missiles){
 				vie--;
-				openChest = false;
+
 				if(vie == 0){
 					mort = true;
 				}
