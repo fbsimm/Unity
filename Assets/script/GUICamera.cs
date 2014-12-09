@@ -5,6 +5,7 @@ public class GUICamera : MonoBehaviour {
 	public GameObject player;
 	public static int score = 0;
 	public Texture2D coeur;
+	public GUISkin style;
 
 	private float virtualWidth = 600f;
 	private float virtualHeight = 400f;
@@ -25,6 +26,10 @@ public class GUICamera : MonoBehaviour {
 
 	void OnGUI() {
 
+		GUI.skin = style;
+
+		GUI.Box(new Rect(0, 0, Screen.width, 100), "");
+
 		//Grosseur de l'écran divisé par la grosseur souhaité
 		scale.x = Screen.width / virtualWidth;
 		scale.y = Screen.height / virtualHeight;
@@ -36,8 +41,10 @@ public class GUICamera : MonoBehaviour {
 
 		GUI.Label(new Rect(10, 10, 100, 20), "Score :" + score);
 
-
-		GUI.Label(new Rect(40, 35, 100, 20), "X" +mouvement.chance);
+		if(mouvement.chance >= 0)
+			GUI.Label(new Rect(40, 35, 100, 20), "X" + mouvement.chance);
+		else
+			GUI.Label(new Rect(40, 35, 100, 20), "X" + 0);
 
 		GUI.Label(new Rect(5, 15, coeur.width, coeur.height), coeur);
 

@@ -11,12 +11,15 @@ public class mouvement : MonoBehaviour {
 	private float groundRadius = 0.1f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
-	private bool sliding;
+	public static bool sliding;
 	private bool punch;
 	public static int chance = 3;
 	public static bool mort = false;
 	public static bool depart = true;
 	public static bool collisionBureau = false;
+
+	//Sprite pour les ennemies
+	public Sprite targetSprite;
 
 	//Variable pour pas écrire "Animator" à chaque fois, parce que nous les programmeurs on est vache.
 	Animator anim;
@@ -26,6 +29,8 @@ public class mouvement : MonoBehaviour {
 	double timer_punch;
 	double timer_slide;
 	double timer_debut;
+	double timer_score;
+	double timer_mort;
 
 	// Initialiser les trucs.
 	void Start () {
@@ -36,6 +41,8 @@ public class mouvement : MonoBehaviour {
 		timer_punch = 0;
 		timer_slide = 0;
 		timer_debut = 0;
+		timer_score = 0;
+		timer_mort = 0;
 	}
 	
 	// Appelé a chaques frame que l'appareil génère.
@@ -61,8 +68,22 @@ public class mouvement : MonoBehaviour {
 			anim.Play("Idle");
 		}
 
-		if(!mort && !punch && !sliding){
+		if (!mort && !depart) {
+			timer_score +=Time.deltaTime;
+			if(timer_score >= 1 && GUICamera.score > 0){
+					GUICamera.score -= 1;
+					timer_score = 0;
+					}
+				}
+		if(!mort && !punch && !sliding && !depart){
 			//Punch
+			if(grounded && gameObject.rigidbody2D.velocity.y <= 0){
+				BoxCollider2D boite = gameObject.GetComponent("BoxCollider2D") as BoxCollider2D;
+				boite.enabled = true;
+				PolygonCollider2D poly = gameObject.GetComponent("PolygonCollider2D") as PolygonCollider2D;
+				poly.enabled = false;
+			}
+
 			if(grounded && Input.GetButtonDown("Punch") && !sliding){
 				if(!punch){
 					CircleCollider2D circle = gameObject.AddComponent("CircleCollider2D") as CircleCollider2D;
@@ -80,6 +101,10 @@ public class mouvement : MonoBehaviour {
 			if(grounded && Input.GetButtonDown("Jump") && !punch && !sliding){
 				anim.ResetTrigger("Run");
 				anim.SetTrigger ("Saut");
+				BoxCollider2D boite = gameObject.GetComponent("BoxCollider2D") as BoxCollider2D;
+				boite.enabled = false;
+				PolygonCollider2D poly = gameObject.GetComponent("PolygonCollider2D") as PolygonCollider2D;
+				poly.enabled = true;
 				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 
@@ -96,8 +121,16 @@ public class mouvement : MonoBehaviour {
 		//Trucs pour le temps
 
 		//Compteur pour le respawn
-		if(mort)
-			timer += Time.deltaTime;
+		if(mort){
+			if(chance >= 0){
+				timer += Time.deltaTime;
+			}
+			else
+			{
+				timer_mort += Time.deltaTime;
+			}
+		}
+				
 
 		//Compteur pour le punch
 		if(punch){
@@ -143,6 +176,11 @@ public class mouvement : MonoBehaviour {
 				else if (sliding)
 					this.transform.Translate (Vector3.right * maxSpeed / 1.5f);
 			}
+			else{
+				if(timer_mort >= 3){
+					Application.LoadLevel("GameOver");
+				}
+			}
 		}
 
 	}
@@ -161,12 +199,7 @@ public class mouvement : MonoBehaviour {
 			collisionBureau = true;
 		} 
 	}
-
-	void OnCollisionExit2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Bureau"){
-				collisionBureau = false;
-			} 
-		}
+	
 
 	//Si on frappe l'ennemie, on le détruit et on ajoute les points.
 	void OnTriggerEnter2D(Collider2D coll){
@@ -178,6 +211,9 @@ public class mouvement : MonoBehaviour {
 			GUICamera.score += 100;
 			Destroy(coll.gameObject);
 		}
+		if (coll.gameObject.tag == "Bureau"){
+			collisionBureau = false;
+		} 
 	}
 
 	void OnTriggerStay2D(Collider2D coll){
