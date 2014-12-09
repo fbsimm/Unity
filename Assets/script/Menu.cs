@@ -49,7 +49,7 @@ public class Menu : MonoBehaviour {
 
 		//this.boutonJouer (550, 250, 200, 50, "Jouer");
 
-		if (GUI.Button (new Rect (550, 250, 200, 50), "Jouer", styleBtn)) {
+		if (GUI.Button (new Rect (Screen.width*0.75f - 125, Screen.height/2, 250, 100), "Jouer", styleBtn)) {
 			PlayerPrefs.SetInt ("Score", 0);
 			maxArray = level1Section.Length;
 			random = Random.Range(0, maxArray);

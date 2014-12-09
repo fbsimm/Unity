@@ -17,6 +17,8 @@ public class mouvement : MonoBehaviour {
 	public static bool mort = false;
 	public static bool depart = true;
 	public static bool collisionBureau = false;
+	public GUIStyle style;
+	private bool action = false;
 
 	//Sprite pour les ennemies
 	public Sprite targetSprite;
@@ -77,15 +79,21 @@ public class mouvement : MonoBehaviour {
 				}
 		if(!mort && !punch && !sliding && !depart){
 
-			if(grounded && gameObject.rigidbody2D.velocity.y <= 0){
+			if(gameObject.rigidbody2D.velocity.y < 0){
 				BoxCollider2D boite = gameObject.GetComponent("BoxCollider2D") as BoxCollider2D;
 				boite.enabled = true;
 				PolygonCollider2D poly = gameObject.GetComponent("PolygonCollider2D") as PolygonCollider2D;
 				poly.enabled = false;
+				action = false;
 			}
 
+			//Détection des swipes
+			//Y'a rien icitte osti
+
+
+
 			//Punch
-			if(grounded && Input.GetButtonDown("Punch") && !sliding){
+			if((grounded && Input.GetButtonDown("Punch") && !sliding) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && !action)){
 				if(!punch){
 					CircleCollider2D circle = gameObject.AddComponent("CircleCollider2D") as CircleCollider2D;
 					circle.radius = 0.12f;
@@ -110,7 +118,7 @@ public class mouvement : MonoBehaviour {
 			}
 
 			//Slide
-			if((grounded && Input.GetButtonDown("Slide") && !punch) || (Input.GetTouch(0).phase == TouchPhase.Began)){
+			if(grounded && Input.GetButtonDown("Slide") && !punch){
 				anim.ResetTrigger("Run");
 				anim.SetTrigger("sliding");
 				box.size = new Vector2 (0.97f, 0.55f);
@@ -154,6 +162,7 @@ public class mouvement : MonoBehaviour {
 				box.size = new Vector2 (0.66f, 0.9f);
 				box.center = new Vector2 (0, 0);
 				anim.SetTrigger("Run");
+				action = false;
 			}
 			else{
 				timer_slide += Time.deltaTime;
@@ -223,6 +232,35 @@ public class mouvement : MonoBehaviour {
 		if (coll.gameObject.tag == "Bureau") {
 			if(timer_slide >= 0.9f){
 				timer_slide = 0.9f;
+			}
+		}
+	}
+
+	void OnGUI(){
+		if (Application.platform == RuntimePlatform.Android)
+		{
+			if(GUI.Button (new Rect (20,Screen.height-170, 200, 140), "Jump", style) && grounded && !punch && !sliding && !depart && !mort){
+				action = true;
+				anim.ResetTrigger("Run");
+				anim.SetTrigger ("Saut");
+				BoxCollider2D boite = gameObject.GetComponent("BoxCollider2D") as BoxCollider2D;
+				boite.enabled = false;
+				PolygonCollider2D poly = gameObject.GetComponent("PolygonCollider2D") as PolygonCollider2D;
+				poly.enabled = true;
+				rigidbody2D.AddForce(new Vector2(0, jumpForce));
+			}
+
+			if(GUI.Button (new Rect (Screen.width - 220,Screen.height-170, 200, 140), "Slide", style) && grounded && !punch && !depart && !mort){
+				action = true;
+
+				BoxCollider2D box = collider2D as BoxCollider2D;
+
+				anim.ResetTrigger("Run");
+				anim.SetTrigger("sliding");
+				box.size = new Vector2 (0.97f, 0.55f);
+				box.center = new Vector2 (0, -0.17f);
+				sliding = true;
+				timer_slide = 0;
 			}
 		}
 	}
